@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGACY Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1>LEGACY</h1>
+            <p>Connect with friends and the world around you on LEGACY.</p>
+        </div>
+        <div class="right-section">
+            <form class="login-form" onsubmit="return validateForm()">
+                <input type="text" id="email" placeholder="Email address or phone number" required>
+                
+                <!-- Password field with strength indicator -->
+                <input type="password" id="password" placeholder="Password" oninput="checkPasswordStrength()" required>
+                <span id="password-strength-text"></span>
+                <div id="password-strength-meter">
+                    <div id="strength-bar"></div>
+                </div>
+                
+                <button type="submit">Log In</button>
+                <p class="forgot-password"><a href="#">Forgotten password?</a></p>
+                <hr>
+                <button class="create-account">Create New Account</button>
+            </form>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

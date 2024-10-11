@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 70%;
+    max-width: 1000px;
+    height: 450px;
+}
+
+.left-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-section h1 {
+    color: #1877f2;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.left-section p {
+    font-size: 20px;
+    color: #606770;
+}
+
+.right-section {
+    flex: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input {
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    outline: none;
+}
+
+#password-strength-text {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #ff0000;
+}
+
+#password-strength-meter {
+    height: 8px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+#strength-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #ff0000;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.login-form button {
+    padding: 15px;
+    background-color: #1877f2;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #165fbd;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-password a {
+    color: #1877f2;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.create-account {
+    padding: 15px;
+    background-color: #42b72a;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.create-account:hover {
+    background-color: #36a420;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #dddfe2;
+    margin: 15px 0;
+}
