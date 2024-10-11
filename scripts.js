@@ -1,68 +1,71 @@
-function validateForm() {
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
+function checkPasswordStrength() {
+    const password = document.getElementById("password").value;
+    const strengthBar = document.getElementById("strength-bar");
+    const strengthText = document.getElementById("password-strength-text");
 
-    // Email validation
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
-        return false;
+    let strength = 0;
+
+    // Check password length
+    if (password.length >= 6) {
+        strength += 1;
+    }
+    if (password.match(/[a-z]/)) {
+        strength += 1;
+    }
+    if (password.match(/[A-Z]/)) {
+        strength += 1;
+    }
+    if (password.match(/[0-9]/)) {
+        strength += 1;
+    }
+    if (password.match(/[^a-zA-Z0-9]/)) {
+        strength += 1;
     }
 
-    // Password validation
+    // Update strength bar and text
+    switch (strength) {
+        case 0:
+        case 1:
+            strengthBar.style.width = "20%";
+            strengthBar.style.backgroundColor = "#ff0000"; // Red
+            strengthText.innerText = "Weak";
+            break;
+        case 2:
+            strengthBar.style.width = "40%";
+            strengthBar.style.backgroundColor = "#ff8000"; // Orange
+            strengthText.innerText = "Fair";
+            break;
+        case 3:
+            strengthBar.style.width = "60%";
+            strengthBar.style.backgroundColor = "#80ff00"; // Yellow
+            strengthText.innerText = "Good";
+            break;
+        case 4:
+            strengthBar.style.width = "80%";
+            strengthBar.style.backgroundColor = "#00ff00"; // Green
+            strengthText.innerText = "Strong";
+            break;
+        case 5:
+            strengthBar.style.width = "100%";
+            strengthBar.style.backgroundColor = "#008000"; // Dark Green
+            strengthText.innerText = "Very Strong";
+            break;
+        default:
+            strengthBar.style.width = "0%";
+            strengthText.innerText = "";
+    }
+}
+
+function validateForm() {
+    const password = document.getElementById("password").value;
     if (password.length < 6) {
         alert("Password must be at least 6 characters long.");
         return false;
     }
-
-    alert("Login successful!");
-    return true; // submit form
+    return true;
 }
 
-// Check password strength
-function checkPasswordStrength() {
-    var password = document.getElementById("password").value;
-    var strengthText = document.getElementById("password-strength-text");
-    var strengthBar = document.getElementById("strength-bar");
-    
-    if (password.length === 0) {
-        strengthText.innerHTML = "";
-        strengthBar.style.width = "0%";
-        return;
-    }
-
-    var strength = 0;
-
-    // Check password criteria
-    if (password.length >= 6) strength += 1; // Minimum 6 characters
-    if (password.match(/[A-Z]/)) strength += 1; // Uppercase letters
-    if (password.match(/[0-9]/)) strength += 1; // Numbers
-    if (password.match(/[!@#$%^&*(),.?":{}|<>]/)) strength += 1; // Special characters
-
-    // Update strength bar and text based on strength score
-    switch (strength) {
-        case 1:
-            strengthText.innerHTML = "Weak";
-            strengthBar.style.width = "25%";
-            strengthBar.style.backgroundColor = "#ff0000";
-            break;
-        case 2:
-            strengthText.innerHTML = "Moderate";
-            strengthBar.style.width = "50%";
-            strengthBar.style.backgroundColor = "#ffae42";
-            break;
-        case 3:
-            strengthText.innerHTML = "Strong";
-            strengthBar.style.width = "75%";
-            strengthBar.style.backgroundColor = "#ffc107";
-            break;
-        case 4:
-            strengthText.innerHTML = "Very Strong";
-            strengthBar.style.width = "100%";
-            strengthBar.style.backgroundColor = "#28a745";
-            break;
-        default:
-            strengthText.innerHTML = "";
-            strengthBar.style.width = "0%";
-    }
+function createAccount() {
+    // Functionality for creating a new account can go here
+    alert("Create Account feature is not implemented yet.");
 }
